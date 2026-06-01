@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metaetiquetas de configuración de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rincón Patagón - Experiencia gastronómica auténtica de la Patagonia">
+    <meta name="keywords" content="restaurante, comida patagónica, reservas, gastronomía">
+    <meta name="author" content="Rincón Patagón">
+    
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <title>Rincón Patagón - Experiencia Gastronómica Auténtica</title>
+    
+    <!-- Vinculación de la hoja de estilos CSS externa -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER: Encabezado de la página con navegación principal -->
+    <header class="header">
+        <!-- SECTION LOGO: Sección del logo y nombre del restaurante -->
+        <section class="logo-section">
+            <h1 class="restaurant-name">Rincón Patagón</h1>
+            <p class="slogan">Experiencia Gastronómica Auténtica</p>
+        </section>
+
+        <!-- NAV: Menú de navegación principal -->
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#platos" class="nav-link">Platos Destacados</a></li>
+                <li class="nav-item"><a href="#reserva" class="nav-link">Reservas</a></li>
+                <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN: Contenido principal de la página -->
+    <main>
+        <!-- SECTION HERO: Sección de bienvenida con imagen de fondo -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Bienvenido a Rincón Patagón</h2>
+                <p class="hero-subtitle">Descubre los sabores auténticos de la Patagonia en cada plato</p>
+            </div>
+        </section>
+
+        <!-- SECTION FEATURED DISHES: Sección de platos destacados con tarjetas -->
+        <section id="platos" class="featured-dishes">
+            <div class="section-header">
+                <h2>Platos Destacados</h2>
+                <p class="section-description">Nuestras creaciones más populares</p>
+            </div>
+
+            <!-- ARTICLE CONTAINER: Contenedor de tarjetas de platos utilizando CSS Grid -->
+            <article class="dishes-grid">
+                <!-- DISH CARD 1: Cordero Patagónico -->
+                <div class="dish-card">
+                    <div class="dish-image" style="background: linear-gradient(135deg, #8B4513, #A0522D);"></div>
+                    <div class="dish-info">
+                        <h3 class="dish-title">Cordero Patagónico</h3>
+                        <p class="dish-description">Tierno cordero asado a fuego lento con chimichurri casero y papas al rescoldo.</p>
+                        <span class="dish-price">$42.00</span>
+                    </div>
+                </div>
+
+                <!-- DISH CARD 2: Trucha a la Parrilla -->
+                <div class="dish-card">
+                    <div class="dish-image" style="background: linear-gradient(135deg, #20B2AA, #5F9EA0);"></div>
+                    <div class="dish-info">
+                        <h3 class="dish-title">Trucha a la Parrilla</h3>
+                        <p class="dish-description">Fresca trucha patagónica a la parrilla con limón, ajo y aceite de oliva premium.</p>
+                        <span class="dish-price">$38.00</span>
+                    </div>
+                </div>
+
+                <!-- DISH CARD 3: Empanadas Caseras -->
+                <div class="dish-card">
+                    <div class="dish-image" style="background: linear-gradient(135deg, #DAA520, #B8860B);"></div>
+                    <div class="dish-info">
+                        <h3 class="dish-title">Empanadas Caseras</h3>
+                        <p class="dish-description">Empanadas rellenas de carne o queso, hechas con masa casera cada día.</p>
+                        <span class="dish-price">$12.00</span>
+                    </div>
+                </div>
+
+                <!-- DISH CARD 4: Postre Nieve Eterna -->
+                <div class="dish-card">
+                    <div class="dish-image" style="background: linear-gradient(135deg, #FFB6C1, #FFC0CB);"></div>
+                    <div class="dish-info">
+                        <h3 class="dish-title">Postre Nieve Eterna</h3>
+                        <p class="dish-description">Helado artesanal de frutos rojos patagónicos con coulis de mora.</p>
+                        <span class="dish-price">$8.00</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- SECTION RESERVATION FORM: Sección de formulario de reserva -->
+        <section id="reserva" class="reservation-section">
+            <div class="section-header">
+                <h2>Reserva tu Mesa</h2>
+                <p class="section-description">Completa el formulario para reservar tu experiencia</p>
+            </div>
+
+            <!-- FORM: Formulario de contacto y reserva -->
+            <form class="reservation-form" action="#" method="POST">
+                <!-- Contenedor de campos de nombre y correo electrónico -->
+                <div class="form-row">
+                    <!-- Campo de nombre -->
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                    </div>
+
+                    <!-- Campo de correo electrónico -->
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    </div>
+                </div>
+
+                <!-- Contenedor de campos de teléfono y fecha -->
+                <div class="form-row">
+                    <!-- Campo de teléfono -->
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+54 9 11 1234-5678">
+                    </div>
+
+                    <!-- Campo de fecha de reserva -->
+                    <div class="form-group">
+                        <label for="date">Fecha de Reserva</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+
+                <!-- Contenedor de campos de hora y cantidad de personas -->
+                <div class="form-row">
+                    <!-- Campo de hora -->
+                    <div class="form-group">
+                        <label for="time">Hora</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+
+                    <!-- Campo de cantidad de personas -->
+                    <div class="form-group">
+                        <label for="guests">Cantidad de Personas</label>
+                        <input type="number" id="guests" name="guests" min="1" max="20" required placeholder="2">
+                    </div>
+                </div>
+
+                <!-- Campo de mensaje opcional -->
+                <div class="form-group full-width">
+                    <label for="message">Mensaje (Opcional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Cuéntanos algo especial sobre tu reserva..."></textarea>
+                </div>
+
+                <!-- Botón de envío del formulario -->
+                <button type="submit" class="submit-btn">Confirmar Reserva</button>
+            </form>
+        </section>
+
+        <!-- SECTION CONTACT: Sección de contacto e información -->
+        <section id="contacto" class="contact-section">
+            <div class="section-header">
+                <h2>Información de Contacto</h2>
+                <p class="section-description">Conéctate con nosotros</p>
+            </div>
+
+            <!-- ARTICLE: Contenedor de información de contacto -->
+            <article class="contact-info">
+                <div class="contact-item">
+                    <h3>Dirección</h3>
+                    <p>Av. Libertador General San Martín 1234<br>San Martín de los Andes, Neuquén</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Teléfono</h3>
+                    <p><a href="tel:+5429261234567">+54 9 2612-345-67</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Correo</h3>
+                    <p><a href="mailto:info@rinconpatagón.com">info@rinconpatagón.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Horarios</h3>
+                    <p>Lunes a Jueves: 12:00 - 23:00<br>
+                       Viernes a Domingo: 12:00 - 00:00</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- FOOTER: Pie de página con información del negocio -->
+    <footer class="footer">
+        <section class="footer-content">
+            <!-- ARTICLE: Información de copyright -->
+            <article class="footer-section">
+                <h4>Rincón Patagón</h4>
+                <p>Experiencia Gastronómica Auténtica de la Patagonia Argentina</p>
+            </article>
+
+            <!-- ARTICLE: Enlaces rápidos -->
+            <article class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#platos">Platos</a></li>
+                    <li><a href="#reserva">Reservas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </article>
+
+            <!-- ARTICLE: Redes Sociales -->
+            <article class="footer-section">
+                <h4>Síguenos</h4>
+                <ul>
+                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- DIV: Información de copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rincón Patagón. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
