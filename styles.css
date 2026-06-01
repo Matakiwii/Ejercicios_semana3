@@ -1,0 +1,718 @@
+/* 
+========================================
+ARCHIVO: styles.css
+DESCRIPCIÓN: Hoja de estilos para la landpage de Rincón Patagón
+CONTENIDO: Variables CSS, diseño responsivo con Flexbox y Grid
+AUTOR: Rincón Patagón
+========================================
+*/
+
+/* ========================================
+SECCIÓN 1: VARIABLES CSS EN :root
+========================================
+Definimos todas las variables de color, tipografía y espaciado
+que utilizaremos en toda la página. Esto facilita el mantenimiento
+y consistencia visual del sitio.
+*/
+
+:root {
+    /* ---- COLORES PRINCIPALES ---- */
+    /* Color primario: marrón tierra patagónico */
+    --color-primary: #8B4513;
+    
+    /* Color primario oscuro para hover y énfasis */
+    --color-primary-dark: #654321;
+    
+    /* Color secundario: verde bosque patagónico */
+    --color-secondary: #2D5016;
+    
+    /* Color de acento: naranja cálido */
+    --color-accent: #E67E22;
+    
+    /* Color de acento claro para fondos */
+    --color-accent-light: #FFF3E0;
+    
+    /* ---- COLORES NEUTRALES ---- */
+    /* Blanco para fondos limpios */
+    --color-white: #FFFFFF;
+    
+    /* Gris claro para fondos secundarios */
+    --color-gray-light: #F5F5F5;
+    
+    /* Gris medio para bordes y separadores */
+    --color-gray-medium: #CCCCCC;
+    
+    /* Gris oscuro para textos secundarios */
+    --color-gray-dark: #666666;
+    
+    /* Negro para textos principales y máximo contraste */
+    --color-black: #000000;
+    
+    /* ---- COLORES SEMÁNTICOS ---- */
+    /* Color de éxito para mensajes positivos */
+    --color-success: #27AE60;
+    
+    /* Color de error para mensajes de error */
+    --color-error: #E74C3C;
+    
+    /* ---- TIPOGRAFÍA ---- */
+    /* Fuente principal para títulos: serif elegante */
+    --font-family-title: 'Georgia', 'Garamond', serif;
+    
+    /* Fuente secundaria para textos: sans-serif moderna */
+    --font-family-body: 'Segoe UI', 'Tahoma', sans-serif;
+    
+    /* Tamaño de letra para títulos principales (h1) */
+    --font-size-h1: 3.5rem;
+    
+    /* Tamaño de letra para títulos secundarios (h2) */
+    --font-size-h2: 2.5rem;
+    
+    /* Tamaño de letra para títulos terciarios (h3) */
+    --font-size-h3: 1.8rem;
+    
+    /* Tamaño de letra para textos de párrafo */
+    --font-size-body: 1rem;
+    
+    /* Tamaño de letra pequeña para detalles */
+    --font-size-small: 0.875rem;
+    
+    /* Peso de fuente normal */
+    --font-weight-normal: 400;
+    
+    /* Peso de fuente semi-bold */
+    --font-weight-semibold: 600;
+    
+    /* Peso de fuente bold */
+    --font-weight-bold: 700;
+    
+    /* ---- ESPACIADO ---- */
+    /* Espaciado extra pequeño */
+    --spacing-xs: 0.25rem;
+    
+    /* Espaciado pequeño */
+    --spacing-sm: 0.5rem;
+    
+    /* Espaciado medio */
+    --spacing-md: 1rem;
+    
+    /* Espaciado grande */
+    --spacing-lg: 1.5rem;
+    
+    /* Espaciado extra grande */
+    --spacing-xl: 2rem;
+    
+    /* Espaciado XXL para secciones grandes */
+    --spacing-xxl: 3rem;
+    
+    /* ---- BORDES Y SOMBRAS ---- */
+    /* Radio de borde para elementos redondeados */
+    --border-radius: 0.5rem;
+    
+    /* Radio de borde grande para elementos más redondeados */
+    --border-radius-lg: 1rem;
+    
+    /* Sombra sutil para tarjetas */
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
+    /* Sombra más pronunciada para elementos destacados */
+    --box-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.2);
+    
+    /* ---- TRANSICIONES ---- */
+    /* Duración de transición rápida */
+    --transition-fast: 0.2s;
+    
+    /* Duración de transición normal */
+    --transition-normal: 0.3s;
+    
+    /* Duración de transición lenta */
+    --transition-slow: 0.5s;
+    
+    /* ---- BREAKPOINTS RESPONSIVOS ---- */
+    /* Ancho mínimo para tablets */
+    --breakpoint-tablet: 768px;
+    
+    /* Ancho mínimo para escritorio */
+    --breakpoint-desktop: 1024px;
+}
+
+/* ========================================
+SECCIÓN 2: RESET Y ESTILOS GLOBALES
+========================================
+Restablecemos los estilos por defecto del navegador y aplicamos
+estilos base a toda la página.
+*/
+
+/* Reset global: eliminamos márgenes, rellenos y dejamos el box-sizing consistente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos base del body: fuente, color y fondo */
+body {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+/* Estilos para todos los títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+}
+
+/* Estilos específicos para h1 */
+h1 {
+    font-size: var(--font-size-h1);
+    color: var(--color-primary);
+}
+
+/* Estilos específicos para h2 */
+h2 {
+    font-size: var(--font-size-h2);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Estilos específicos para h3 */
+h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-primary-dark);
+}
+
+/* Estilos para enlaces */
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+/* Cambio de color cuando pasamos el ratón sobre un enlace */
+a:hover {
+    color: var(--color-primary);
+}
+
+/* Eliminamos lista por defecto */
+ul, ol {
+    list-style: none;
+}
+
+/* Estilos para párrafos */
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray-dark);
+}
+
+/* ========================================
+SECCIÓN 3: HEADER Y NAVEGACIÓN
+========================================
+Estilos para el encabezado y menú de navegación.
+Utilizamos Flexbox para el menú en horizontal.
+*/
+
+/* Contenedor del header */
+.header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: var(--spacing-xl) var(--spacing-md);
+    color: var(--color-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--box-shadow);
+}
+
+/* Sección del logo y nombre del restaurante */
+.logo-section {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Nombre del restaurante */
+.restaurant-name {
+    font-size: var(--font-size-h1);
+    color: var(--color-white);
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Slogan del restaurante */
+.slogan {
+    font-size: var(--font-size-small);
+    color: var(--color-accent-light);
+    margin: var(--spacing-sm) 0 0 0;
+    font-style: italic;
+}
+
+/* Contenedor de navegación */
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Menú de navegación: Flexbox horizontal */
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+/* Elementos individuales del menú */
+.nav-item {
+    transition: transform var(--transition-normal);
+}
+
+/* Efecto de hover en elementos del menú */
+.nav-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Enlaces de navegación */
+.nav-link {
+    color: var(--color-white);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-body);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-normal);
+}
+
+/* Efecto hover en enlaces de navegación */
+.nav-link:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+/* ========================================
+SECCIÓN 4: SECCIÓN HERO
+========================================
+Sección principal de bienvenida con imagen de fondo
+*/
+
+/* Contenedor hero */
+.hero {
+    background: linear-gradient(
+        rgba(139, 69, 19, 0.6),
+        rgba(101, 67, 33, 0.6)
+    ),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%238B4513;stop-opacity:1" /><stop offset="100%" style="stop-color:%23654321;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23grad)" width="1200" height="400"/></svg>');
+    background-size: cover;
+    background-position: center;
+    padding: 8rem var(--spacing-md);
+    text-align: center;
+    color: var(--color-white);
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenido dentro del hero */
+.hero-content {
+    max-width: 800px;
+}
+
+/* Título principal del hero */
+.hero-title {
+    font-size: 3rem;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtítulo del hero */
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--color-accent-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+SECCIÓN 5: ENCABEZADO DE SECCIONES
+========================================
+Estilos comunes para los encabezados de cada sección
+*/
+
+/* Contenedor del encabezado de sección */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* Descripción de la sección */
+.section-description {
+    color: var(--color-gray-dark);
+    font-size: var(--font-size-body);
+    margin-top: var(--spacing-md);
+}
+
+/* ========================================
+SECCIÓN 6: SECCIÓN DE PLATOS DESTACADOS
+========================================
+Estilos para la sección de tarjetas con CSS Grid
+*/
+
+/* Contenedor de la sección de platos */
+.featured-dishes {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background-color: var(--color-white);
+}
+
+/* Grid de tarjetas: CSS Grid obligatorio */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+/* Tarjeta individual de plato */
+.dish-card {
+    background-color: var(--color-gray-light);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* Efecto hover en tarjeta */
+.dish-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* Imagen del plato (placeholder con gradiente) */
+.dish-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Información del plato dentro de la tarjeta */
+.dish-info {
+    padding: var(--spacing-lg);
+}
+
+/* Título del plato */
+.dish-title {
+    font-size: var(--font-size-h3);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Descripción del plato */
+.dish-description {
+    color: var(--color-gray-dark);
+    font-size: var(--font-size-small);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+}
+
+/* Precio del plato */
+.dish-price {
+    display: block;
+    font-size: var(--font-size-h3);
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ========================================
+SECCIÓN 7: SECCIÓN DE RESERVA
+========================================
+Estilos para el formulario de contacto y reserva
+*/
+
+/* Contenedor de la sección de reserva */
+.reservation-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background-color: var(--color-accent-light);
+}
+
+/* Formulario de reserva */
+.reservation-form {
+    max-width: 600px;
+    margin: var(--spacing-xl) auto 0;
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+}
+
+/* Fila del formulario: agrupa dos campos lado a lado */
+.form-row {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Cada columna en una fila ocupa el 50% */
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Grupo de formulario individual */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Grupo de formulario a ancho completo */
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Etiqueta del formulario */
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}
+
+/* Campos de entrada (input, select, textarea) */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-gray-medium);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    transition: border-color var(--transition-normal);
+}
+
+/* Efecto focus en campos de entrada */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background-color: var(--color-accent-light);
+}
+
+/* Botón de envío del formulario */
+.submit-btn {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-accent), #D35400);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* Efecto hover en botón de envío */
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* Efecto activo en botón de envío */
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+SECCIÓN 8: SECCIÓN DE CONTACTO
+========================================
+Estilos para la información de contacto
+*/
+
+/* Contenedor de la sección de contacto */
+.contact-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background-color: var(--color-white);
+}
+
+/* Contenedor de información de contacto */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+/* Elemento individual de contacto */
+.contact-item {
+    background-color: var(--color-gray-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    border-left: 4px solid var(--color-accent);
+}
+
+/* Título del elemento de contacto */
+.contact-item h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Párrafo dentro del elemento de contacto */
+.contact-item p {
+    color: var(--color-gray-dark);
+    margin: 0;
+}
+
+/* ========================================
+SECCIÓN 9: FOOTER
+========================================
+Estilos para el pie de página
+*/
+
+/* Contenedor del footer */
+.footer {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+/* Contenido principal del footer */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-xl);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* Sección individual del footer */
+.footer-section {
+    text-align: center;
+}
+
+/* Título de sección del footer */
+.footer-section h4 {
+    color: var(--color-white);
+    font-size: var(--font-size-h3);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Párrafo dentro del footer */
+.footer-section p {
+    color: var(--color-accent-light);
+    margin: 0;
+}
+
+/* Lista dentro del footer */
+.footer-section ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Enlace dentro del footer */
+.footer-section a {
+    color: var(--color-accent-light);
+    transition: color var(--transition-normal);
+}
+
+/* Efecto hover en enlaces del footer */
+.footer-section a:hover {
+    color: var(--color-accent);
+}
+
+/* Parte inferior del footer con copyright */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: var(--spacing-lg);
+    color: var(--color-accent-light);
+}
+
+/* ========================================
+SECCIÓN 10: MEDIA QUERIES (RESPONSIVE)
+========================================
+Estilos para dispositivos de diferentes tamaños
+*/
+
+/* Para tablets (768px y superior) */
+@media (min-width: var(--breakpoint-tablet)) {
+    /* Ajustamos tamaños de fuente en títulos */
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    /* Menú de navegación se expande */
+    .nav-menu {
+        gap: 2rem;
+    }
+}
+
+/* Para escritorio (1024px y superior) */
+@media (min-width: var(--breakpoint-desktop)) {
+    /* Grid de platos con 3 columnas en desktop */
+    .dishes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Formulario más estrecho */
+    .reservation-form {
+        max-width: 700px;
+    }
+}
+
+/* Para pantallas pequeñas (menos de 768px) */
+@media (max-width: 767px) {
+    /* Título se reduce en móvil */
+    .restaurant-name {
+        font-size: 2rem;
+    }
+    
+    /* Slogan pequeño en móvil */
+    .slogan {
+        font-size: 0.8rem;
+    }
+    
+    /* Menú en una columna en móvil */
+    .nav-menu {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    /* Hero más compacto */
+    .hero {
+        padding: 4rem var(--spacing-md);
+        min-height: 350px;
+    }
+    
+    /* Título hero más pequeño */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    /* Subtítulo hero más pequeño */
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Grid de platos con 1 columna en móvil */
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Fila del formulario en columna en móvil */
+    .form-row {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    /* Secciones con menos padding en móvil */
+    .featured-dishes,
+    .reservation-section,
+    .contact-section {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+}
